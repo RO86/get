@@ -38,13 +38,19 @@ public class Application implements CommandLineRunner {
     String cityName = String.join(" ", args).trim();
     log.debug("Input city name " + cityName);
 
-    // Query suggestions for input city name
-    QueryPositionClient client = new DefaultQueryPositionClient();
-    List<CityPosition> result = client.suggestCityPosition(cityName);
+    try {
 
-    // Write output into a CSV file
-    CityPositionCSVWriter writer = new CityPositionCSVWriter();
-    writer.write(result, cityName);
+      // Query suggestions for input city name
+      QueryPositionClient client = new DefaultQueryPositionClient();
+      List<CityPosition> result = client.suggestCityPosition(cityName);
+
+      // Write output into a CSV file
+      CityPositionCSVWriter writer = new CityPositionCSVWriter();
+      writer.write(result, cityName);
+
+    } catch (RuntimeException e) {
+      log.error("Run time exception was thrown: ", e.getMessage());
+    }
 
   }
 }
