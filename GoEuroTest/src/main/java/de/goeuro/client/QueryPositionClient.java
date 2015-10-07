@@ -1,6 +1,6 @@
 package de.goeuro.client;
 
-import de.goeuro.model.CityPosition;
+import de.goeuro.model.Position;
 
 import java.util.List;
 
@@ -11,5 +11,5 @@ import java.util.List;
 public interface QueryPositionClient {
 
   // Find list of suggested positions
-  public List<CityPosition> suggestCityPosition(String name);
+  public List<Position> suggestCityPosition(String name);
 }

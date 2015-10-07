@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author Radwa Osama
  * @since 9:25 AM - 10/7/2015
  */
-public class CityPosition {
+public class Position {
 
   @JsonProperty("_id")
   private long id;
