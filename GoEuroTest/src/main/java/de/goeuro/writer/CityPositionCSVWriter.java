@@ -9,11 +9,6 @@ import de.goeuro.model.Position;
 public class CityPositionCSVWriter extends CSVWriter<Position> {
 
   @Override
-  public String header() {
-    return "Id,Name,Type,Latitude,Longitude";
-  }
-
-  @Override
   public String map(Position row) {
     return row.getId() + COMMA +
       row.getName() + COMMA +
