@@ -1,6 +1,6 @@
 package de.goeuro.client;
 
-import de.goeuro.model.CityPosition;
+import de.goeuro.model.Position;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -23,7 +23,7 @@ public class DefaultQueryPositionClient implements QueryPositionClient {
   private static final Logger log = LoggerFactory.getLogger(DefaultQueryPositionClient.class);
 
   @Override
-  public List<CityPosition> suggestCityPosition(String name) {
+  public List<Position> suggestCityPosition(String name) {
     if (StringUtils.isEmpty(name)) {
       throw new RuntimeException("invalid input name");
     }
@@ -31,10 +31,10 @@ public class DefaultQueryPositionClient implements QueryPositionClient {
     RestTemplate restTemplate = new RestTemplate();
     String url = String.format(CITY_POSITION_SUGGEST, name);
 
-    ResponseEntity<CityPosition[]> response;
+    ResponseEntity<Position[]> response;
 
     try {
-      response = restTemplate.getForEntity(url, CityPosition[].class);
+      response = restTemplate.getForEntity(url, Position[].class);
       return Arrays.asList(response.getBody());
     } catch (HttpClientErrorException e) {
       throw new RuntimeException(writeMessage(e.getStatusCode(), name), e);

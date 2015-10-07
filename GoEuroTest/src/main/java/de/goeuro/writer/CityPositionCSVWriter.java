@@ -1,12 +1,12 @@
 package de.goeuro.writer;
 
-import de.goeuro.model.CityPosition;
+import de.goeuro.model.Position;
 
 /**
  * @author Radwa Osama
  * @since 10:30 AM - 10/7/2015
  */
-public class CityPositionCSVWriter extends CSVWriter<CityPosition> {
+public class CityPositionCSVWriter extends CSVWriter<Position> {
 
   @Override
   public String header() {
@@ -14,7 +14,7 @@ public class CityPositionCSVWriter extends CSVWriter<CityPosition> {
   }
 
   @Override
-  public String map(CityPosition row) {
+  public String map(Position row) {
     return row.getId() + COMMA +
       row.getName() + COMMA +
       row.getType() + COMMA +
