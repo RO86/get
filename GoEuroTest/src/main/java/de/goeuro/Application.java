@@ -49,7 +49,7 @@ public class Application implements CommandLineRunner {
       writer.write(result, cityName);
 
     } catch (RuntimeException e) {
-      log.error("Run time exception was thrown: ", e.getMessage());
+      log.error("Run time exception was thrown: " + e.getMessage());
     }
 
   }
