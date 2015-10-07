@@ -8,7 +8,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class CityPosition {
 
-  private long _id;
+  @JsonProperty("_id")
+  private long id;
 
   private String name;
 
@@ -17,12 +18,12 @@ public class CityPosition {
   @JsonProperty("geo_position")
   private GeoPosition geoPosition;
 
-  public long get_id() {
-    return _id;
+  public long getId() {
+    return id;
   }
 
-  public void set_id(long _id) {
-    this._id = _id;
+  public void setId(long id) {
+    this.id = id;
   }
 
   public String getName() {
@@ -52,7 +53,7 @@ public class CityPosition {
   @Override
   public String toString() {
     return "CityPosition{" +
-      "_id=" + _id +
+      "id=" + id +
       ", name='" + name + '\'' +
       ", type='" + type + '\'' +
       ", geoPosition=" + geoPosition +

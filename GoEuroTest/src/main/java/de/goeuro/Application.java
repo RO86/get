@@ -31,7 +31,7 @@ public class Application implements CommandLineRunner {
   public void run(String... args) throws Exception {
 
     if (args == null || args.length == 0 || !StringUtils.hasText(args[0])) {
-      log.error("invalid input");
+      log.error("Invalid input");
       return;
     }
 

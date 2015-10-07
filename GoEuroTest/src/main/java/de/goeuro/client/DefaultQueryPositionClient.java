@@ -25,19 +25,16 @@ public class DefaultQueryPositionClient implements QueryPositionClient {
   @Override
   public List<CityPosition> suggestCityPosition(String name) {
     if (StringUtils.isEmpty(name)) {
-      log.debug("invalid input name");
       throw new RuntimeException("invalid input name");
     }
 
     RestTemplate restTemplate = new RestTemplate();
     String url = String.format(CITY_POSITION_SUGGEST, name);
-    log.debug("calling API with " + url);
 
     ResponseEntity<CityPosition[]> response;
 
     try {
       response = restTemplate.getForEntity(url, CityPosition[].class);
-      log.debug("results returned ");
       return Arrays.asList(response.getBody());
     } catch (HttpClientErrorException e) {
       throw new RuntimeException(writeMessage(e.getStatusCode(), name), e);

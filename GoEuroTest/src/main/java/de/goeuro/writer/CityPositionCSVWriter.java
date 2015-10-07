@@ -15,7 +15,7 @@ public class CityPositionCSVWriter extends CSVWriter<CityPosition> {
 
   @Override
   public String map(CityPosition row) {
-    return row.get_id() + COMMA +
+    return row.getId() + COMMA +
       row.getName() + COMMA +
       row.getType() + COMMA +
       row.getGeoPosition().getLatitude() + COMMA +
